@@ -41,7 +41,7 @@ $(document).ready(function(){
     })
 
     var pinput = $("#player-input")
-    pinput.keydown(function(e){
+    pinput.keyup(function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
             playervalue = playervalue.slice(0, playervalue.length - 1)
@@ -58,7 +58,7 @@ $(document).ready(function(){
     })
 
     var p1input = $("#player1-input")
-    p1input.keydown(function(e){
+    p1input.keyup(function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
             player1value = player1value.slice(0, player1value.length - 1)
@@ -75,7 +75,7 @@ $(document).ready(function(){
     })
 
     var p2input = $("#player2-input")
-    p2input.keydown(function(e){
+    p2input.keyup(function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
             player2value = player2value.slice(0, player2value.length - 1)
