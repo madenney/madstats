@@ -68,30 +68,30 @@ $(document).ready(function(){
         $("#player-input").val(playervalue)
 
         if(playervalue.length > 0){
-            search(singleDropdown, playervalue, pinput, singleProfile, 0)
+            search(singleDropdown, playervalue, $("#player-input"), singleProfile, 0)
         } else {
             singleDropdown.empty()
         }
     })
 
-    var p1input = $("#player1-input")
-    p1input.keydown(function(e){
+    var p1input = document.getElementById("player1-input")
+    p1input.addEventListener("input", function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
             player1value = player1value.slice(0, player1value.length - 1)
         } else {
             player1value = player1value + e.key
         }
-        p1input.val(player1value)
+        $("#player1-input").val(player1value)
 
         if(player1value.length > 0){
-            search(player1dropdown, player1value, p1input, player1Profile, 1)
+            search(player1dropdown, player1value, $("#player1-input"), player1Profile, 1)
         } else {
             player1dropdown.empty()
         }
     })
 
-    var p2input = $("#player2-input")
+    var p2input = document.getElementById("player2-input")
     p2input.keydown(function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
@@ -99,10 +99,10 @@ $(document).ready(function(){
         } else {
             player2value = player2value + e.key
         }
-        p2input.val(player2value)
+        $("#player2-input").val(player2value)
 
         if(player2value.length > 0){
-            search(player2dropdown, player2value, p2input, player2Profile, 2)
+            search(player2dropdown, player2value, $("#player2-input"), player2Profile, 2)
         } else {
             player2dropdown.empty()
         }
