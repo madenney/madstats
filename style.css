@@ -1,4 +1,53 @@
 
+body {
+    background-color: gray;
+    height: 100%;
+}
+
+input {
+    font-size: 20px;
+}
+
+.button, .form-button {
+    padding: 10px;
+    font-size: 18px;
+    display: block;
+    margin:10px;
+}
+
 .title {
     color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+.test {
+    background-color: green
+}
+
+.form-button{
+    margin: 10px;
+    display: block;
+}
+
+.dropdowncontainer {
+    position: absolute;
+    width: 200px;
+}
+
+.dropDownOption{
+    font-size: 24px;
+    padding: 5px;
+    border: solid 1px blue;
+    background-color: yellow
+}
+
+.playerProfileContainer{
+    text-align: center;
+}
+
+table {
+    margin: auto;
 }

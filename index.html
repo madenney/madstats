@@ -7,23 +7,35 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/png" href="images/8bitowl.png"/>
     <script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            console.log("DOC LOADED")
-        })
-    </script>
-
-
+    <script src = "./script.js"></script>
 </head>
 <body>
     <div class="main-content">
         <h1 class="title" >Mad Stats</h1>
-        <br/>
-        <form>
-            <p>Select a player:</p>
-            <input type="text" name="player1">
-            <input type="submit" value="Submit">
-        </form>
+        <button id="modeToggle" class="button" type="button">Toggle Mode</button>
+        <div id="singlePlayer">
+            <br/>
+            <h2>Single Player</h2>
+            <p>Enter Player Tag:</p>
+            <input type="text" id="player-input"/>
+            <div id="playerdropdown" class="dropdowncontainer"></div>
+            <div id="singleProfileContainer" class="playerProfileContainer"></div>
+        </div>
+        <div id="twoPlayer" class="hidden">
+            <br/>
+            <h2>Two Players</h2>
+            <p>Enter Player 1 Tag:</p>
+            <input type="text" id="player1-input">
+            <div id="player1dropdown" class="dropdowncontainer"></div>
+            <p>Enter Player 2 Tag:</p>
+            <input type="text" id="player2-input">
+            <div id="player2dropdown" class="dropdowncontainer"></div>
+            <button id="head2headButton" class="button" >Submit</button>
+            <div id="player1ProfileContainer" class="playerProfileContainer"></div>
+            <div id="player2ProfileContainer" class="playerProfileContainer"></div>
+            <br/>
+            <div id="head2headContainer" class="playerProfileContainer"></div>
+        </div>
     </div>
     
 </body>
