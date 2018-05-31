@@ -92,7 +92,7 @@ $(document).ready(function(){
     })
 
     var p2input = document.getElementById("player2-input")
-    p2input.keydown(function(e){
+    p2input.addEventListener("input", function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
             player2value = player2value.slice(0, player2value.length - 1)
