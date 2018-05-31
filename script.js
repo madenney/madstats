@@ -40,15 +40,32 @@ $(document).ready(function(){
         }
     })
 
-    var pinput = $("#player-input")
-    pinput.on("keyup", function(e){
+    // var pinput = $("#player-input")
+    // pinput.keydown(function(e){
+    //     e.preventDefault()
+    //     if(e.key === "Backspace"){
+    //         playervalue = playervalue.slice(0, playervalue.length - 1)
+    //     } else {
+    //         playervalue = playervalue + e.key
+    //     }
+    //     pinput.val(playervalue)
+
+    //     if(playervalue.length > 0){
+    //         search(singleDropdown, playervalue, pinput, singleProfile, 0)
+    //     } else {
+    //         singleDropdown.empty()
+    //     }
+    // })
+
+    var pinput = document.getElementById("player-input")
+    pinput.addEventListener("input", function(e){
         e.preventDefault()
-        if(e.key === "Backspace"){
+        if(e.inputType === "deleteContentBackward"){
             playervalue = playervalue.slice(0, playervalue.length - 1)
         } else {
-            playervalue = playervalue + e.key
+            playervalue = playervalue + e.data
         }
-        pinput.val(playervalue)
+        $("#player-input").val(playervalue)
 
         if(playervalue.length > 0){
             search(singleDropdown, playervalue, pinput, singleProfile, 0)
@@ -58,7 +75,7 @@ $(document).ready(function(){
     })
 
     var p1input = $("#player1-input")
-    p1input.on("keyup", function(e){
+    p1input.keydown(function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
             player1value = player1value.slice(0, player1value.length - 1)
@@ -75,7 +92,7 @@ $(document).ready(function(){
     })
 
     var p2input = $("#player2-input")
-    p2input.on("keyup", function(e){
+    p2input.keydown(function(e){
         e.preventDefault()
         if(e.key === "Backspace"){
             player2value = player2value.slice(0, player2value.length - 1)
