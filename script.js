@@ -65,7 +65,7 @@ function add2Listeners(){
     var p1input = document.getElementById("player1-input")
     p1input.addEventListener("input", function(e){
         e.preventDefault()
-        if(e.inputType === "Backspace"){
+        if(e.inputType === "deleteContentBackward"){
             player1value = player1value.slice(0, player1value.length - 1)
         } else {
             player1value = player1value + e.data
@@ -82,7 +82,7 @@ function add2Listeners(){
     var p2input = document.getElementById("player2-input")
     p2input.addEventListener("input", function(e){
         e.preventDefault()
-        if(e.inputType === "Backspace"){
+        if(e.inputType === "deleteContentBackward"){
             player2value = player2value.slice(0, player2value.length - 1)
         } else {
             player2value = player2value + e.data
