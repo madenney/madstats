@@ -7,19 +7,15 @@ var player1id = ""
 var player2id = ""
 var head2headContainer
 var single 
+var player1value = ""
+var player2value = ""
 
 $(document).ready(function(){
     single = $("#singlePlayer")
     var twoPlayer = $("#twoPlayer")
     var singleDropdown = $("#playerdropdown")
-    var player1dropdown = $("#player1dropdown")
-    var player2dropdown = $("#player2dropdown")
     var singleProfile = $("#singleProfileContainer")
-    var player1Profile = $("#player1ProfileContainer")
-    var player2Profile = $("#player2ProfileContainer")
     var playervalue = ""
-    var player1value = ""
-    var player2value = ""
 
     head2headContainer = $("#head2headContainer")
 
@@ -30,32 +26,9 @@ $(document).ready(function(){
         } else {
             single.addClass("hidden")
             twoPlayer.removeClass("hidden")
+            add2Listeners()
         }
     })
-
-    $("#head2headButton").click(function(e){
-        e.preventDefault()
-        if(player1id !== "" && player2id !== ""){
-            getHead2HeadProfile(player1id, player2id)
-        }
-    })
-
-    // var pinput = $("#player-input")
-    // pinput.keydown(function(e){
-    //     e.preventDefault()
-    //     if(e.key === "Backspace"){
-    //         playervalue = playervalue.slice(0, playervalue.length - 1)
-    //     } else {
-    //         playervalue = playervalue + e.key
-    //     }
-    //     pinput.val(playervalue)
-
-    //     if(playervalue.length > 0){
-    //         search(singleDropdown, playervalue, pinput, singleProfile, 0)
-    //     } else {
-    //         singleDropdown.empty()
-    //     }
-    // })
 
     var pinput = document.getElementById("player-input")
     pinput.addEventListener("input", function(e){
@@ -73,14 +46,29 @@ $(document).ready(function(){
             singleDropdown.empty()
         }
     })
+})
+
+function add2Listeners(){
+
+    var player1Profile = $("#player1ProfileContainer")
+    var player2Profile = $("#player2ProfileContainer")
+    var player1dropdown = $("#player1dropdown")
+    var player2dropdown = $("#player2dropdown")
+
+    $("#head2headButton").click(function(e){
+        e.preventDefault()
+        if(player1id !== "" && player2id !== ""){
+            getHead2HeadProfile(player1id, player2id)
+        }
+    })
 
     var p1input = document.getElementById("player1-input")
     p1input.addEventListener("input", function(e){
         e.preventDefault()
-        if(e.key === "Backspace"){
+        if(e.inputType === "Backspace"){
             player1value = player1value.slice(0, player1value.length - 1)
         } else {
-            player1value = player1value + e.key
+            player1value = player1value + e.data
         }
         $("#player1-input").val(player1value)
 
@@ -94,10 +82,10 @@ $(document).ready(function(){
     var p2input = document.getElementById("player2-input")
     p2input.addEventListener("input", function(e){
         e.preventDefault()
-        if(e.key === "Backspace"){
+        if(e.inputType === "Backspace"){
             player2value = player2value.slice(0, player2value.length - 1)
         } else {
-            player2value = player2value + e.key
+            player2value = player2value + e.data
         }
         $("#player2-input").val(player2value)
 
@@ -107,7 +95,7 @@ $(document).ready(function(){
             player2dropdown.empty()
         }
     })
-})
+}
 
 function search(dropdown, string, input, target, id){
         
@@ -207,7 +195,6 @@ function getHead2HeadProfile(id1, id2){
         success: function(response){
             if(response.status === 200){
                 head2headContainer.empty()
-                console.log(head2headContainer)
                 head2headContainer.append(generateHead2HeadView(response.data))
             }
         },
